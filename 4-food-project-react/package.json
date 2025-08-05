@@ -1,0 +1,19 @@
+{
+  "name": "4-food-project-react",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "parcel index.html",
+    "test": "jest",
+    "build": "parcel build index.html"
+  },
+  "author": "Raviraj Shinde",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  },
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  }
+}
