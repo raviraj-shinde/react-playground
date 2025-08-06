@@ -1,0 +1,207 @@
+/* ===========================
+   Basic CSS Starter Template
+   =========================== */
+
+/* 1. Reset some default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 2. Set up default font and body styles */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1vw;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* 3. Anchor styling */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: #007bff;
+}
+
+/* 4. Utility classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text {
+  width: 30%;
+  height: 2rem;
+  margin-right: 1vw;
+}
+
+.mt-1 {
+  margin-top: 10px;
+}
+.mt-2 {
+  margin-top: 20px;
+}
+.mb-1 {
+  margin-bottom: 10px;
+}
+.mb-2 {
+  margin-bottom: 20px;
+}
+
+/* 5. Button base style */
+button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* 6. Responsive image */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 7. Simple card layout (optional) */
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* hover class*/
+.hover-effect {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.hover-effect:hover {
+  background-color: #e6f0ff; /* light blue background on hover */
+  color: #007bff; /* optional: blue text */
+  transform: translateY(-2px); /* optional: slight lift effect */
+}
+
+/*Header*/
+header {
+  width: calc(100% - 2vw); /* subtract horizontal margins */
+  margin: 0.5vw 1vw 0.5vw 1vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #333;
+}
+
+header .logo {
+  width: 40%;
+  margin-left: 2vw;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  font-size: 1.7vw;
+  font-weight: 100;
+}
+
+header .logo img {
+  width: 15%;
+}
+
+header > ul {
+  display: flex;
+  justify-content: space-evenly;
+  width: 40%;
+}
+
+header > ul > li {
+  text-decoration: none;
+  list-style: none;
+}
+
+/* body */
+.body {
+  width: 100%;
+  padding: 1vw;
+}
+
+.body .rcard-container {
+  display: flex;
+  flex-wrap: wrap; /* ✅ This enables wrapping */
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 20px; /* ✅ Optional spacing between cards */
+  padding: 2vw 1vw;
+}
+
+.fcard {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  width: 20vw;
+}
+
+.fcard img {
+  width: 100%;
+}
+
+.fcard .fcard-extra-data {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fcard .fcard-extra-data .ratting {
+  width: 20%;
+  text-align: end;
+  font-weight: 900;
+}
+
+.fcard h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
+  font-weight: 800;
+}
+
+.fcard h4 {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.fcard h5 {
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+
+/*footer*/
+
+.footer{
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0.5rem 0 2rem 0;
+  background-color: beige;
+}
