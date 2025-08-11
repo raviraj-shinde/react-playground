@@ -1,12 +1,13 @@
 import ReactDOM from "react-dom/client"; // client ***
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-import Body from "./src/components/Body";
-import Footer from "./src/components/Footer";
-import Header from "./src/components/Header";
-import About from "./src/pages/About";
-import ContactUs from "./src/pages/ContactUs";
-import FoodDetails from "./src/pages/FoodDetails";
-import NotFound from "./src/components/NotFound";
+import Body from "./components/Body";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import ContactUs from "./pages/ContactUs";
+import FoodDetails from "./pages/FoodDetails";
+import NotFound from "./components/NotFound";
+import React, { lazy, Suspense } from "react";
+
 
 const AppLayout = () => {
   return (
@@ -17,6 +18,10 @@ const AppLayout = () => {
     </div>
   );
 };
+
+//Lazy Loading Pages/Coponents
+const A = lazy(() => (import("./pages/About")));
+
 
 const configuration = createBrowserRouter([
   {
@@ -33,7 +38,11 @@ const configuration = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About />,
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <A />
+          </Suspense>
+        ),
       },
       {
         path: "/contact",
