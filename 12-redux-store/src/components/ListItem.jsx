@@ -1,8 +1,10 @@
 import { ITEM_IMAGE_URL } from "../utils/constants";
+import { useDispatch } from "react-redux";
+import { addItem, clearItem, removeItem } from "../redux/cartSlice";
 
 const ListItem = (props) => {
   const { itemCard } = props;
-
+  const dispatch = useDispatch();
   const itemCardInfo = itemCard?.card?.info;
 
   const {
@@ -19,7 +21,11 @@ const ListItem = (props) => {
     },
   } = itemCardInfo;
 
-  return (
+  const handleAddCart = () => {
+    dispatch(addItem(itemCard));
+  }
+
+  return (!price && !finalPrice) ? null: (
     <div className="w-full p-5 bg-white rounded-2xl shadow-lg flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 hover:shadow-xl transition-shadow duration-300 mb-4">
       {/* Left Content */}
       <div className="flex-1">
@@ -57,15 +63,23 @@ const ListItem = (props) => {
       </div>
 
       {/* Right Image */}
-      <div className="sm:ml-6 flex-shrink-0">
+      <div className="sm:ml-6 flex-shrink-0 relative hover:scale-105 transition-transform duration-300">
+        <button className="absolute top-2 left-1/2 -translate-x-1/2 bg-green-500 text-white w-12 h-8 flex items-center justify-center rounded-lg shadow-lg hover:bg-gray-500 hover:scale-120"
+        onClick={handleAddCart}
+        >
+          Add+
+        </button>
         <img
           src={ITEM_IMAGE_URL + imageId}
           alt={name}
-          className="w-32 h-32 object-cover rounded-xl shadow-md hover:scale-105 transition-transform duration-300"
+          className="w-32 h-32 object-cover rounded-xl shadow-md "
         />
       </div>
     </div>
   );
 };
+
+
+///do Higher Order Component for adding remove button for cart with condtion by passing new prop from cart page
 
 export default ListItem;

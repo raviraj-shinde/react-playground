@@ -1,14 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { LOGO_URL } from "../utils/constants";
-import { useContext } from "react";
 import UserContext from "../utils/UserContext";
-import { FaSlack } from "react-icons/fa";
+import { FaShoppingCart } from "react-icons/fa";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("login");
   const { loggedInUserName, age } = useContext(UserContext);
   const [isLogin, setLogin] = useState(false);
+  const cartItem = useSelector((store) => store.cart.items);
 
   return (
     <header className="w-full h-20 flex justify-between items-center p-2 mb-4 shadow-lg">
@@ -26,6 +27,16 @@ const Header = () => {
       <ul className="w-4/12 font-semibold text-2xl flex justify-evenly mx-4 items-center">
         <li className="hover:border-b-2 border-indigo-200">
           <Link to={"/"}>Home</Link>
+        </li>
+        <li className="hover:border-b-2 border-indigo-200">
+          <Link to="/cart" className="relative">
+            <FaShoppingCart className="text-3xl" />
+            {cartItem.length > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">
+                {cartItem.length}
+              </span>
+            )}
+          </Link>
         </li>
         <li className="hover:border-b-2 border-indigo-200">
           <Link to={"/about"}>About</Link>

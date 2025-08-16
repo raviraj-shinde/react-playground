@@ -8,6 +8,9 @@ import FoodDetails from "./pages/FoodDetails";
 import NotFound from "./components/NotFound";
 import React, { lazy, Suspense, useEffect, useState } from "react";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./redux/appStore";
+import Cart from "./pages/Cart";
 
 const AppLayout = () => {
   const [userName, setUserName] = useState("");
@@ -16,18 +19,20 @@ const AppLayout = () => {
     //call an API
     const data = "Default U2";
     setUserName(data);
-  }, [])
+  }, []);
 
   return (
-    <div>
-      <UserContext.Provider
-        value={{ loggedInUserName: userName, setUserName }}
-      >
-        <Header />
-        <Outlet />
-        <Footer />
-      </UserContext.Provider>
-    </div>
+    <Provider store={appStore}>
+      <div>
+        <UserContext.Provider
+          value={{ loggedInUserName: userName, setUserName }}
+        >
+          <Header />
+          <Outlet />
+          <Footer />
+        </UserContext.Provider>
+      </div>
+    </Provider>
   );
 };
 
@@ -58,6 +63,10 @@ const configuration = createBrowserRouter([
       {
         path: "/contact",
         element: <ContactUs />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
     errorElement: <NotFound />,
