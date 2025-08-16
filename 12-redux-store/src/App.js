@@ -13,7 +13,7 @@ const AppLayout = () => {
   const [userName, setUserName] = useState("");
 
   useEffect(() => {
-    //cal an API
+    //call an API
     const data = "Default U2";
     setUserName(data);
   }, [])
